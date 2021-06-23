@@ -1,13 +1,20 @@
 import re
 
-pattern = "[0-9]+"
+attempts = 3
 
-name = input("What is your name: ")
+while True:
+    name = input("What is your name: ")
+    if name.isalpha():
+        print("Welcome", name)
+        break
+    else:
+        print("WARNING: Only letters, no numbers or special characters. You have", attempts, "left.")
+        attempts -= 1
+        if attempts == 0:
+            print("You have exceeded the amount of attempts. Goodbye!")
+            break
+        continue
 
-if re.search(pattern, name):
-    print("Okay great")
-else:
-    print("Invalid input. Please try again.")
 
 pattern2 = "[a-zA-Z]"
 try:
